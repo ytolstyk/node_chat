@@ -10,6 +10,16 @@ $(function () {
     $('ul.messages').append('<li>' + data.nickName + " > " + data.message + '</li>');
   });
   
+  socket.on("users", function(nickNames) {
+    var $users = $("ul.users");
+    $users.html("");
+    for (var key in nickNames) {
+      if (nickNames[key] !== "") {
+        $users.append("<li>" + nickNames[key] + "</li>");
+      }
+    }
+  });
+  
   $('form').on('submit', function (event) {
     event.preventDefault();
     var $input = $('#message_field');
