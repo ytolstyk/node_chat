@@ -18,14 +18,21 @@
       case "nick":
         this.changeNickname(attribute);
         break;
+      case 'join':
+        this.changeRoom(attribute);
+        break;
       default:
         this.socket.emit("unrecognizedCommand");
     }
-  }
+  };
   
   ChatNamespace.Chat.prototype.changeNickname = function(name) {
     this.socket.emit("nicknameChangeRequest", name);
-  }
+  };
+  
+  ChatNamespace.Chat.prototype.changeRoom = function (room) {
+    this.socket.emit("handleRoomChangeRequests", room);
+  };
   
 }());
 

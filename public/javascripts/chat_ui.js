@@ -3,21 +3,23 @@ $(function () {
   var chat = new ChatNamespace.Chat(socket);
   
   socket.on('message', function (data) {
-    $('ul.messages').append('<li>' + data.nickName + " > " + data.message + '</li>');
+    $('ul.messages').append('<li class="li-message">' + data.nickName + " > " + data.message + '</li>');
   });
   
   socket.on("nicknameChangeResult", function(data) {
-    $('ul.messages').append('<li>' + data.nickName + " > " + data.message + '</li>');
+    $('ul.messages').append('<li class="li-message">' + data.nickName + " > " + data.message + '</li>');
   });
   
-  socket.on("users", function(nickNames) {
+  socket.on("users", function(userRooms) {
     var $users = $("ul.users");
     $users.html("");
-    for (var key in nickNames) {
-      if (nickNames[key] !== "") {
-        $users.append("<li>" + nickNames[key] + "</li>");
+    
+    for (var key in userRooms) {
+      if (key !== 'undefined') {
+        $users.append("<li class='li-user'>" + key + " (" + userRooms[key] + ")" + "</li>"); 
       }
     }
+
   });
   
   $('form').on('submit', function (event) {
