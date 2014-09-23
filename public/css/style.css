@@ -1,1 +1,49 @@
-.container
+* {
+  list-style: none;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+input {
+  width: 400px;
+  margin: 5px;
+}
+
+.container {
+  background-color: lightgrey;
+  align: center;
+}
+
+.center {
+  margin: 0 auto;
+  width: 500px;
+  background: black;
+  color: lightgrey;
+}
+
+.chat-box {
+  padding: 10px;
+  border: 2px solid grey;
+  height: 300px;
+/*  overflow: auto;*/
+}
+.ul-messages {
+  max-height: 100%;
+  overflow: auto;
+}
+
+.input-form {
+  
+}
+
+.users-list {
+  min-height: 300px;
+  padding: 10px;
+  width: 200px;
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  top: 0;
+  border: 2px solid grey;
+}

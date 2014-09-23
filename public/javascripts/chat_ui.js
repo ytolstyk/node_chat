@@ -3,15 +3,23 @@ $(function () {
   var chat = new ChatNamespace.Chat(socket);
   
   socket.on('message', function (data) {
-    $('ul.messages').append('<li class="li-message">' + data.nickName + " > " + data.message + '</li>');
+    var $msgs = $('.ul-messages');
+    $msgs.append('<li class="li-message">' + 
+          data.nickName + " > " + 
+          data.message + '</li>');
+    $msgs.scrollTop($msgs[0].scrollHeight);
   });
   
   socket.on("nicknameChangeResult", function(data) {
-    $('ul.messages').append('<li class="li-message">' + data.nickName + " > " + data.message + '</li>');
+    var $msgs = $('.ul-messages');
+    $msgs.append('<li class="li-message">' + 
+          data.nickName + " > " + 
+          data.message + '</li>');
+    $msgs.scrollTop($msgs[0].scrollHeight);
   });
   
   socket.on("users", function(userRooms) {
-    var $users = $("ul.users");
+    var $users = $("ul.ul-users");
     $users.html("");
     
     for (var key in userRooms) {
@@ -32,6 +40,9 @@ $(function () {
       chat.sendMessage(message);
     }
     $input.val('');
+    
   });
+  
+
 
 });
