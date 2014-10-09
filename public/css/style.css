@@ -1,8 +1,10 @@
-* {
+body {
   list-style: none;
   padding: 0;
   border: 0;
   margin: 0;
+  font-family: sans-serif;
+  background-color: black;
 }
 
 input {
@@ -12,17 +14,21 @@ input {
 
 .container {
   background-color: lightgrey;
-  align: center;
+  position: relative;
+  width: 100%;
 }
 
 .center {
   margin: 0 auto;
   width: 500px;
-  background: black;
   color: lightgrey;
 }
 
 .chat-box {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  display: inline-block;
   padding: 10px;
   border: 2px solid grey;
   height: 300px;
@@ -34,7 +40,18 @@ input {
 }
 
 .input-form {
-  
+}
+
+#message-field {
+  background-color: white;
+  color: grey;
+}
+
+.message-input {
+  position: absolute;
+  width: 500px;
+  left: 5px;
+  top: 330px;
 }
 
 .users-list {
@@ -43,7 +60,18 @@ input {
   width: 200px;
   position: absolute;
   display: inline-block;
-  right: 0;
-  top: 0;
+  left: 530px;
+  top: 5px;
   border: 2px solid grey;
+  background-color: black;
+  color: grey;
+}
+
+.hints {
+  position: absolute;
+  color: grey;
+  background-color: black;
+  top: 360px;
+  left: 5px;
+  padding: 5px;
 }
