@@ -1,5 +1,5 @@
 $(function () {
-  var socket = io('http://localhost');
+  var socket = io();
   var chat = new ChatNamespace.Chat(socket);
   
   socket.on('message', function (data) {
